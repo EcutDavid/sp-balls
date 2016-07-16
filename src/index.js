@@ -5,13 +5,25 @@ import GameController from './components/ballsController';
 import PerformanceCounter from './components/performanceCounter';
 
 const canvas = document.querySelector('#app');
-const { innerHeight, innerWidth } = window;
-canvas.setAttribute('width', innerWidth);
-canvas.setAttribute('height', innerHeight);
+
+const setCanvasAttributes = () => {
+    const canvasWidth = canvas.getAttribute('width');
+    const canvasHeight = canvas.getAttribute('height');
+
+    const { innerHeight, innerWidth } = window;
+    if (canvasWidth === innerWidth && canvasHeight === innerHeight) {
+      return
+    }
+    canvas.setAttribute('width', innerWidth);
+    canvas.setAttribute('height', innerHeight);
+}
+// setInterval(setCanvasAttributes, 500);
+setCanvasAttributes()
+
 const context = canvas.getContext('2d');
 
 const balls = [];
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 35; i++) {
   balls.push(new Ball(context));
 }
 
@@ -26,8 +38,8 @@ function update() {
     balls[i].draw(d.transX, d.transY);
   });
   counterComponent.updateCounter();
-  ballsController.update(counterComponent.fps)
-  setTimeout(update, 3);
+  ballsController.update(counterComponent.fps);
+  setTimeout(update, 0);
 }
 
 update();
