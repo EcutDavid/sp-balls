@@ -1,15 +1,15 @@
 'use strict'
 
-let baseConfig = require('./base')
-let defaultSettings = require('./defaults')
+var baseConfig = require('./base');
+var defaultSettings = require('./defaults');
 
-let config = Object.assign({}, baseConfig, {
+var config = Object.assign({}, baseConfig, {
   entry: [
     './src/index'
   ],
   cache: true,
   devtool: 'eval-source-map',
   module: defaultSettings.getDefaultModules()
-})
+});
 
-module.exports = config
+module.exports = config;

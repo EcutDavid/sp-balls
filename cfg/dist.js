@@ -1,12 +1,12 @@
 'use strict'
 
-let path = require('path')
-let webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
 
-let baseConfig = require('./base')
-let defaultSettings = require('./defaults')
+var baseConfig = require('./base');
+var defaultSettings = require('./defaults');
 
-let config = Object.assign({}, baseConfig, {
+var config = Object.assign({}, baseConfig, {
   entry: path.join(__dirname, '../src/index'),
   cache: false,
   devtool: 'sourcemap',
@@ -21,6 +21,6 @@ let config = Object.assign({}, baseConfig, {
     new webpack.NoErrorsPlugin()
   ],
   module: defaultSettings.getDefaultModules()
-})
+});
 
-module.exports = config
+module.exports = config;

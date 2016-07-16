@@ -1,7 +1,6 @@
 'use strict'
-let path = require('path')
-let defaultSettings = require('./defaults')
-
+var path = require('path');
+var defaultSettings = require('./defaults');
 
 module.exports = {
   port: defaultSettings.port,
@@ -29,4 +28,4 @@ module.exports = {
       require('autoprefixer')
     ]
   }
-}
+};
