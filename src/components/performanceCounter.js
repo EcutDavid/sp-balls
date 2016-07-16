@@ -1,6 +1,6 @@
 export default class PerformanceCounter {
-  constructor(dom) {
-    this.dom = dom;
+  constructor() {
+    this.dom = document.querySelector('#fps');
     this.timeBeforeCalc = performance.now();
     this.counter = 0;
     setInterval(() => this.updateFPS(), 500);

@@ -35,16 +35,11 @@ export default class Ball {
 
   draw(transX, transY) {
     const {
-      canvasCtx,
       ball,
       light
     } = this;
     // Prevent this drawing method pollute context
-    canvasCtx.save();
-
     this.drawBall(light, transX, transY);
     this.drawBall(ball, transX, transY);
-
-    canvasCtx.restore();
   }
 }

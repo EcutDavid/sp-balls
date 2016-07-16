@@ -9,10 +9,13 @@ export default class GameController {
     };
     this.radiusArr = balls.map(d => d.radius);
 
+    // Setup balls
+    const { innerWidth } = window;
+    const xOffset = (innerWidth - 300) > 0 ? (innerWidth - 300) / 2 : 0
     for (let i = 0; i < balls.length; i++) {
       this.positions.push({
-        transX: 18 + 30 * (i % 10),
-        transY: 100 + Number.parseInt(i / 10) * 50
+        transX: xOffset + 30 * (i % 10),
+        transY: 140 + Number.parseInt(i / 10) * 50
       });
       this.defaultAcc.push({
         x: (Math.random() - 0.5 ) * 10.0,
@@ -23,9 +26,19 @@ export default class GameController {
         y: 0
       });
     }
+
+    // Change naturalForce basedon user device's state.
+    window.addEventListener('devicemotion', (event) => {
+      const { x, y } = event.accelerationIncludingGravity
+      if (x !== null && x !== undefined && y !== null && y !== undefined) {
+        this.naturalForce = { x, y };
+      }
+    })
   }
 
   update(fps) {
+    // Pass the very first few seconds
+    // Application is not stable during that time
     if (!fps || fps < 50) {
       return;
     }
