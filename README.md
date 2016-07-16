@@ -38,4 +38,9 @@ Now, whatever you want, happy coding! :)
 ## Browser support
 Support:   
 Mac: Chrome, Safari.  
-IPhone 5S: Chrome, Safari, Wechat browser
+IPhone 5S: Chrome, Safari, Wechat browser, Firefox.    
+
+Not Support:  
+Mac: Firefox.   
+
+Haven't test other browsers, if you find this app not working in your browser, please tell me, thanks in advance!   

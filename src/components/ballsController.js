@@ -1,3 +1,4 @@
+// Control position for each ball
 export default class GameController {
   constructor(balls) {
     this.positions = [];
