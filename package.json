@@ -1,0 +1,42 @@
+{
+  "name": "",
+  "private": true,
+  "version": "0.0.1",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "dist": "webpack --env=dist",
+    "lint": "eslint ./src",
+    "dev": "webpack --env=dev --watch",
+    "watchDev": "cd dist && browser-sync start --server --files \"*.*\""
+  },
+  "repository": "",
+  "keywords": [],
+  "author": "David Guan(davidguandev@gmail.com)",
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "babel-core": "^6.0.0",
+    "babel-eslint": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-es2015-parameters": "^6.9.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-es2015": "^6.0.15",
+    "babel-preset-stage-0": "^6.5.0",
+    "concurrently": "^2.2.0",
+    "copyfiles": "^0.2.1",
+    "css-loader": "^0.23.0",
+    "eslint": "^2.2.0",
+    "isparta-instrumenter-loader": "^1.0.0",
+    "minimist": "^1.2.0",
+    "node-sass": "^3.4.2",
+    "postcss": "^5.0.11",
+    "postcss-loader": "^0.8.0",
+    "precss": "^1.4.0",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.0",
+    "webpack-dev-server": "^1.12.0"
+  }
+}
