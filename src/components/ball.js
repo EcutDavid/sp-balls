@@ -3,12 +3,12 @@ import { generateRandomColor } from '../helpers/color';
 export default class Ball {
   constructor(canvasCtx) {
     this.canvasCtx = canvasCtx;
-    const ballSize = Math.random() * 15 + 6;
+    this.radius = Math.random() * 15 + 6;
 
     this.ball = {
       color: generateRandomColor(),
       strokeColor: generateRandomColor(),
-      size: ballSize,
+      radius: this.radius,
       lineWidth: 2
     };
 
@@ -16,21 +16,21 @@ export default class Ball {
     this.light = {
       color: generateRandomColor(lightOpacity),
       strokeColor: generateRandomColor(lightOpacity),
-      size: ballSize * 4,
+      radius: this.radius * 4,
       lineWidth: 6
     };
   }
 
-  drawBall({ color, strokeColor, size, lineWidth }, transX = 0, transY = 0) {
-    const { canvasCtx } = this
+  drawBall({ color, strokeColor, radius, lineWidth }, transX = 0, transY = 0) {
+    const { canvasCtx } = this;
 
     canvasCtx.beginPath();
-    canvasCtx.fillStyle = color
-    canvasCtx.strokeStyle = strokeColor
-    canvasCtx.arc(transX, transY, size, 0, 2 * Math.PI)
-    canvasCtx.lineWidth = lineWidth
-    canvasCtx.fill()
-    canvasCtx.stroke()
+    canvasCtx.fillStyle = color;
+    canvasCtx.strokeStyle = strokeColor;
+    canvasCtx.arc(transX, transY, radius, 0, 2 * Math.PI);
+    canvasCtx.lineWidth = lineWidth;
+    canvasCtx.fill();
+    canvasCtx.stroke();
   }
 
   draw(transX, transY) {
@@ -38,7 +38,7 @@ export default class Ball {
       canvasCtx,
       ball,
       light
-    } = this
+    } = this;
     // Prevent this drawing method pollute context
     canvasCtx.save();
 

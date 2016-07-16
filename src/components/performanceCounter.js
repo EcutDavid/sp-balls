@@ -3,7 +3,6 @@ export default class PerformanceCounter {
     this.dom = dom;
     this.timeBeforeCalc = performance.now();
     this.counter = 0;
-    this.timeWhenUpdate = performance.now();
     setInterval(() => this.updateFPS(), 500);
   }
 
@@ -13,11 +12,15 @@ export default class PerformanceCounter {
   }
 
   updateFPS() {
+    if (!this.timeWhenUpdate) {
+      this.timeWhenUpdate = performance.now();
+      return;
+    }
     const time = (this.timeWhenUpdate - this.timeBeforeCalc) / this.counter;
-    const FPS = (1000 / time).toFixed(2);
+    this.fps = (1000 / time).toFixed(2);
     this.timeBeforeCalc = performance.now();
     this.counter = 0;
 
-    this.dom.innerHTML = `FPS: ${FPS}`;
+    this.dom.innerHTML = `FPS: ${this.fps}`;
   }
 }
