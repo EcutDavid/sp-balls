@@ -31,7 +31,7 @@ export default class GameController {
     window.addEventListener('devicemotion', (event) => {
       const { x, y } = event.accelerationIncludingGravity
       if (x !== null && x !== undefined && y !== null && y !== undefined) {
-        this.naturalForce = { x, y };
+        this.naturalForce = { x, y: -y };
       }
     })
   }
