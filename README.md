@@ -1,4 +1,4 @@
-bounce balls, without using any third party library.
+Bounce balls, without using any third party library.
 ![image](https://cloud.githubusercontent.com/assets/10692276/16894215/75933462-4b82-11e6-8d9c-b1a6dcb291e5.png)
 
 ## Development
