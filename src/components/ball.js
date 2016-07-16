@@ -3,7 +3,7 @@ import { generateRandomColor } from '../helpers/color';
 export default class Ball {
   constructor(canvasCtx) {
     this.canvasCtx = canvasCtx;
-    const ballSize = Math.random() * 20 + 10;
+    const ballSize = Math.random() * 15 + 6;
 
     this.ball = {
       color: generateRandomColor(),
@@ -21,19 +21,19 @@ export default class Ball {
     };
   }
 
-  drawBall({ color, strokeColor, size, lineWidth }, xTrans = 0, yTrans = 0) {
+  drawBall({ color, strokeColor, size, lineWidth }, transX = 0, transY = 0) {
     const { canvasCtx } = this
 
     canvasCtx.beginPath();
     canvasCtx.fillStyle = color
     canvasCtx.strokeStyle = strokeColor
-    canvasCtx.arc(xTrans, yTrans, size, 0, 2 * Math.PI)
+    canvasCtx.arc(transX, transY, size, 0, 2 * Math.PI)
     canvasCtx.lineWidth = lineWidth
     canvasCtx.fill()
     canvasCtx.stroke()
   }
 
-  draw(xTrans, yTrans) {
+  draw(transX, transY) {
     const {
       canvasCtx,
       ball,
@@ -42,8 +42,8 @@ export default class Ball {
     // Prevent this drawing method pollute context
     canvasCtx.save();
 
-    this.drawBall(light, xTrans, yTrans);
-    this.drawBall(ball, xTrans, yTrans);
+    this.drawBall(light, transX, transY);
+    this.drawBall(ball, transX, transY);
 
     canvasCtx.restore();
   }

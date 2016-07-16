@@ -8,7 +8,7 @@ var config = Object.assign({}, baseConfig, {
     './src/index'
   ],
   cache: true,
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
   module: defaultSettings.getDefaultModules()
 });
 
