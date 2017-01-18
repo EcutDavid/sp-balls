@@ -25,7 +25,7 @@ function update() {
   });
   counterComponent.updateCounter();
   ballsController.update(counterComponent.fps);
-  setTimeout(update, 0);
+  requestAnimationFrame(update, 0);
 }
 
-update();
+requestAnimationFrame(update);

@@ -8,7 +8,7 @@
     "dist": "webpack --env=dist",
     "lint": "eslint ./src",
     "dev": "webpack --env=dev --watch",
-    "watchDev": "cd dist && browser-sync start --server --files \"*.*\""
+    "start": "cd dist && browser-sync start --server --files \"*.*\""
   },
   "repository": "",
   "keywords": [],
